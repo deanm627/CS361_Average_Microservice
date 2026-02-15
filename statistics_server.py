@@ -30,7 +30,7 @@ def median(nums):
     except Exception as e:
         return "An unexpected error occurred: " + str(e), 1
     else:
-        return med, 0
+        return round(med, 2), 0
 
 while True:
     # Wait for request

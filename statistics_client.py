@@ -7,7 +7,7 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
 
 # Sample data
-nums = [1, 5, 6, 7, 8, 10, 22]
+nums = [1, 2, 5.5, 7, 14,2]
 socket.send_json(nums)
 
 # Get and print the response
