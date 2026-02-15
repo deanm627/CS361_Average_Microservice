@@ -15,6 +15,8 @@ def average(nums):
         return "Error computing average. " + str(e), 1
     except StatisticsError as e:
         return "Error computing average: " + str(e), 1
+    except Exception as e:
+        return "An unexpected error occurred: " + str(e), 1
     else:
         return round(avg, 2), 0
 
@@ -25,6 +27,8 @@ def median(nums):
         return "Error computing median: " + str(e), 1
     except StatisticsError as e:
         return "Error computing median: " + str(e), 1
+    except Exception as e:
+        return "An unexpected error occurred: " + str(e), 1
     else:
         return med, 0
 
