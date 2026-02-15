@@ -7,12 +7,15 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
 
 # Sample data
-nums = [1, 2.5, 5, 67, 33.4, 9.1, 0]
+nums = [1, 5, 6, 7, 8, 10, 22, 'a']
 socket.send_json(nums)
 
 # Print the response
 response = socket.recv_json()
 if response['code'] == 0:
-    print(f"Average is: {response['avg']}")
+    print(f"Average: {response['avg']}")
+    print(f"Median: {response['median']}")
 else:
-    print(f"An error occurred: {response['error']}")
+    print(f"An error occurred:")
+    print(f"Average: {response['avg']}")
+    print(f"Median: {response['median']}")
