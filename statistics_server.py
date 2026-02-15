@@ -35,13 +35,15 @@ def median(nums):
 while True:
     # Wait for request
     print("Listening on 5555")
-    # Obtain message and print to screen
+    # Get data from client
     data = socket.recv_json()
+    # Compute average and median
     avg, average_code = average(data)
     med, median_code = median(data)
+    # Compose response
     if average_code == 0 and median_code == 0:
         results = {'avg': avg, 'median': med, 'code': 0}
     else:
         results = {'avg': avg, 'median': med, 'code': 1}
-    # Compose and send response
+    # Send response
     socket.send_json(results)
