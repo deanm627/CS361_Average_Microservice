@@ -3,11 +3,6 @@ from statistics import StatisticsError
 import zmq
 import statistics
 
-# Establish server and attach to port
-context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
-
 def average(nums):
     try:
         avg = statistics.mean(nums)
@@ -31,6 +26,11 @@ def median(nums):
         return "An unexpected error occurred: " + str(e), 1
     else:
         return round(med, 2), 0
+
+# Establish server and attach to port
+context = zmq.Context()
+socket = context.socket(zmq.REP)
+socket.bind("tcp://*:5555")
 
 while True:
     # Wait for request

@@ -9,7 +9,9 @@ results are stored in JSON format and transmitted with code
 0 indicating success.  If the input is invalid and/or the 
 computation was unable to be executed, an error message is 
 returned in the response instead of the results with
-code 1, indicating an error occurred.  
+code 1, indicating an error occurred.
+
+The computed results are numbers rounded to two decimal places.
 
 ## How to REQUEST data
 Establish TCP connection with the server.  
@@ -27,8 +29,9 @@ Store the response in a variable and parse the JSON
 response = socket.recv_json()
 ```
 The response data can be accessed using the following keys: avg, median, code
+
 If an error occurred, the error message will be the value instead 
-of the result. 
+of the computed result. 
 
 See below an example of how the response data might be printed:
 ```
