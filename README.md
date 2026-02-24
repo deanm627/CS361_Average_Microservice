@@ -14,8 +14,13 @@ code 1, indicating an error occurred.
 The computed results are numbers rounded to two decimal places.
 
 ## How to REQUEST data
-Establish TCP connection with the server.  
+Install and import ZeroMQ (zmq), create socket, then establish TCP connection with the server.  
 ```
+import zmq
+
+context = zmq.Context()
+
+socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
 ```
 Send a list of numbers using JSON to encode the data.
